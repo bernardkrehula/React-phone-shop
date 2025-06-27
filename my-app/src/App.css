@@ -32,6 +32,10 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   text-transform: uppercase;
 }
+.shop-content hr {
+  margin-top: 20px;
+  height: 2px;
+}
 .bag-content {
   list-style: none;
 }
@@ -84,4 +88,40 @@ html {
   font-size: 6rem;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: 1000;
+}
+.total-price {
+  display: flex;
+  margin-top: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
+.total-price h5 {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-left: 0;
+}
+.total-price h6 {
+  font-size: 5rem;
+  font-weight: 500;
+  margin-right: 0;
+  background-color: rgb(98, 0, 255);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+.clear-btn{
+  font-size: 5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border: none;
+  padding: 5px 20px;
+  background-color: rgb(197, 197, 197);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+}
+.clear-btn:hover {
+  background-color: rgb(172, 172, 172);
+  transition: 0.2s ease-in-out;
 }
