@@ -125,3 +125,17 @@ html {
   background-color: rgb(172, 172, 172);
   transition: 0.2s ease-in-out;
 }
+.shopping-cart {
+  position: relative;
+}
+#bubble {
+  margin-left: -25px;
+  margin-bottom: 20px;
+}
+.shopping-cart h2 {
+  font-size: 3rem;
+  position: absolute;
+  top: 7px;
+  right: 17px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

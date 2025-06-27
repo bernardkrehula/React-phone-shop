@@ -6,29 +6,43 @@ import SinglePhone from './phone.jsx';
 function App() {
   const [ phone, setPhone ] = useState(phonesData);
 
+    const removePhone = (id) => {
+        setPhone(prev => prev.filter(device => device.id !== id)
+      )
+    }
+    const clearCart = () => {
+      setPhone([])
+    }
   return (
       <>
         <div className='main'>
             <div className='title'>
               <h1>UseReducer</h1>
-              <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" /></svg>
+              <div className='shopping-cart'>
+                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round"  className="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M17 17h-11v-14h-2" /><path d="M6 5l14 1l-1 7h-13" />
+                </svg>
+                <svg id='bubble' xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  className="icon icon-tabler icons-tabler-filled icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z" />
+                </svg>
+                <h2></h2>
+              </div>
+              
             </div>
             <div className='shop-content'>
               <h2>Your bag</h2>
                 <ul className='bag-content'>
                   {phone.map(device => {
-                  
-                    return(
-                      <SinglePhone key={device.id} device={device}/>
-                    )
-                  })}
+                      return(
+                        <SinglePhone key={device.id} device={device} removePhone={removePhone} />
+                      )
+                    }
+                  )}
                 </ul>
                 <hr></hr>
                 <div className='total-price'>
                   <h5>Total</h5>
                   <h6>$2199.96</h6>
                 </div>
-                <button className='clear-btn'>Clear cart</button>
+                <button className='clear-btn' onClick={clearCart}>Clear cart</button>
             </div>
         </div>
     </>
