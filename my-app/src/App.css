@@ -18,25 +18,70 @@ html {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 .title svg {
-  
+  color: white;
+  height: 50px;
+  width: 50px;
 }
 .shop-content {
   width: 1200px;
+  text-align: center;
+}
+.shop-content h2 {
+  margin-top: 50px;
+  font-size: 7rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-transform: uppercase;
 }
 .bag-content {
   list-style: none;
 }
 .single-bag {
   display: flex;
+  margin-top: 50px;
+}
+.single-bag img {
+  margin-left: 0;
+  height: 350px;
+}
+.phone-info {
+  font-size: 3.6rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: start;
+  margin-left: -270px;
+  margin-top: 35px;
+}
+.phone-info h4 {
+  font-weight: 500;
+  color: rgb(136, 136, 136);
+  margin-top: 10px;
+}
+.phone-info button {
+  border: none;
+  background-color: transparent;
+  font-size: 3rem;
+  text-transform: lowercase;
+  color: rgb(136, 136, 136);
+  cursor: pointer;
 }
 .brackets {
   display: flex;
   flex-direction: column;
   margin-left: auto;
   margin-right: 0;
+  margin: 35px 0;
 }
 .brackets button {
   cursor: pointer;
   border: none;
   background-color: transparent;
+}
+.brackets button svg {
+  height: 100px;
+  width: 100px;
+  color: purple
+}
+.brackets span {
+  font-size: 6rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 1000;
 }
