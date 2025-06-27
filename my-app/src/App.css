@@ -1,0 +1,29 @@
+html {
+  font-size: 62.5%;
+}
+*{
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.shop-content {
+  width: 1200px;
+}
+.bag-content {
+  list-style: none;
+}
+.single-bag {
+  display: flex;
+}
+.brackets {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: 0;
+}
+.brackets button {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
