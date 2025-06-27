@@ -6,7 +6,20 @@ html {
   padding: 0;
   box-sizing: border-box;
 }
-
+.title {
+  display: flex;
+  background-color: purple;
+  height: 100px;
+  align-items: center;
+}
+.title h1 {
+  color: white;
+  font-size: 5rem;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.title svg {
+  
+}
 .shop-content {
   width: 1200px;
 }
