@@ -3,7 +3,7 @@ import './App.css'
 import phonesData from './phonesData.js'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
@@ -16,7 +16,7 @@ function App() {
           <h2>Your bag</h2>
           <ul className='bag-content'>
             <li className='single-bag'>
-              <img src="" alt="" />
+              <img src="https://www.course-api.com/images/cart/phone-1.png"/>
               <div className='phone-info'>
                 <h3>Samsung galaxy S8</h3>
                 <h4>$399.99</h4>
