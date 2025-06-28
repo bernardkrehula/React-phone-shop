@@ -5,7 +5,9 @@ import SinglePhone from './phone.jsx';
 
 function App() {
   const [ phone, setPhone ] = useState(phonesData);
-  const [ price, setPrice ] = useState(0)
+  const [ price, setPrice ] = useState(0);
+  const [ getSumAmount, setSumAmount ] = useState(phone.length);
+
 
     const removePhone = (id) => {
         setPhone(prev => prev.filter(device => device.id !== id)
@@ -14,9 +16,15 @@ function App() {
     const clearCart = () => {
       setPhone([])
     }
-    const foundPhone = (id, number) => {
+    const toggleAmount = (id, number) => {
       setPhone(prev => prev.map(device => device.id === id ? {...device, amount: number} : device));
     }
+    useEffect(() => {
+      let sum = 0;
+      phone.map(prev => sum += parseInt(prev.amount))
+      setSumAmount(sum)
+    }, [phone])
+    
     useEffect(() => {
         let sum = 0;
         phone.forEach((device) => { sum += parseFloat(device.price * device.amount)})
@@ -34,7 +42,7 @@ function App() {
                   </svg>
                   <svg id='bubble' xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  className="icon icon-tabler icons-tabler-filled icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z" />
                   </svg>
-                  <h2>{phone.length}</h2>
+                  <h2>{getSumAmount}</h2>
                 </div>
                 
               </div>
@@ -45,7 +53,7 @@ function App() {
                     <ul className='bag-content'>
                       {phone.map(device => {
                           return(
-                            <SinglePhone key={device.id} device={device} removePhone={removePhone} foundPhone={foundPhone}/>
+                            <SinglePhone key={device.id} device={device} removePhone={removePhone} toggleAmount={toggleAmount}/>
                           )
                         }
                       )}

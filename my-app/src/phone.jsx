@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const SinglePhone = ({device, removePhone, foundPhone}) => {
+const SinglePhone = ({device, removePhone, toggleAmount}) => {
     const { id, name, price, amount, image } = device;
 
     const [ getAmount, setAmount ] = useState(parseInt(amount));
@@ -17,8 +17,9 @@ const SinglePhone = ({device, removePhone, foundPhone}) => {
                     setAmount(newAmount)
                 }
             }
+            if(newAmount === 0) removePhone(id)
 
-        foundPhone(id, newAmount)
+        toggleAmount(id, newAmount)
     }
     
     return(
