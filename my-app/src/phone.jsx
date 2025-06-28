@@ -2,6 +2,12 @@ import { useState } from "react";
 
 const SinglePhone = ({device, removePhone}) => {
     const { id, name, price, amount, image } = device;
+
+    const [ getAmount, setAmount ] = useState(amount);
+
+    const changeAmount = () => {
+        setAmount(prev => prev + 1)
+    }
     
     return(
         <li className='single-bag' key={id}>
