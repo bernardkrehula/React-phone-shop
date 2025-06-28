@@ -14,11 +14,14 @@ function App() {
     const clearCart = () => {
       setPhone([])
     }
+    const foundPhone = (id, number) => {
+      setPhone(prev => prev.map(device => device.id === id ? {...device, amount: number} : device));
+    }
     useEffect(() => {
         let sum = 0;
-        phone.forEach((price) => { sum += parseFloat(price.price)})
+        phone.forEach((device) => { sum += parseFloat(device.price * device.amount)})
         setPrice(sum)
-    }) 
+    },[phone]) 
 
 
     return (
@@ -40,7 +43,7 @@ function App() {
                   <ul className='bag-content'>
                     {phone.map(device => {
                         return(
-                          <SinglePhone key={device.id} device={device} removePhone={removePhone}/>
+                          <SinglePhone key={device.id} device={device} removePhone={removePhone} foundPhone={foundPhone}/>
                         )
                       }
                     )}
@@ -48,7 +51,7 @@ function App() {
                   <hr></hr>
                   <div className='total-price'>
                     <h5>Total</h5>
-                    <h6>${price}</h6>
+                    <h6>${price.toFixed(2)}</h6>
                   </div>
                   <button className='clear-btn' onClick={clearCart}>Clear cart</button>
               </div>
