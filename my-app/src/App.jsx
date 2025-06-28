@@ -40,20 +40,28 @@ function App() {
               </div>
               <div className='shop-content'>
                 <h2>Your bag</h2>
-                  <ul className='bag-content'>
-                    {phone.map(device => {
-                        return(
-                          <SinglePhone key={device.id} device={device} removePhone={removePhone} foundPhone={foundPhone}/>
-                        )
-                      }
-                    )}
-                  </ul>
-                  <hr></hr>
-                  <div className='total-price'>
-                    <h5>Total</h5>
-                    <h6>${price.toFixed(2)}</h6>
-                  </div>
-                  <button className='clear-btn' onClick={clearCart}>Clear cart</button>
+                {phone.length != 0 ? (
+                  <>
+                    <ul className='bag-content'>
+                      {phone.map(device => {
+                          return(
+                            <SinglePhone key={device.id} device={device} removePhone={removePhone} foundPhone={foundPhone}/>
+                          )
+                        }
+                      )}
+                    </ul>
+                    <hr></hr>
+                    <div className='total-price'>
+                      <h5>Total</h5>
+                      <h6>${price.toFixed(2)}</h6>
+                    </div>
+                    <button className='clear-btn' onClick={clearCart}>Clear cart</button>
+                  </>
+                  ) : (
+                    <p>is currently empty</p>
+                  )
+                }
+                 
               </div>
           </div>
       </>
