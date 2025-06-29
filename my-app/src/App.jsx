@@ -17,9 +17,25 @@ function App() {
       setPhone([])
     }
     const toggleAmount = (id, number) => {
-      setPhone(prev => prev.map(device => device.id === id ? {...device, amount: number} : device));
+      setPhone(prev => 
+        prev
+        .map(device => {
+        if(device.id === id){
+          if(number === 1){
+            return {...device, amount: parseInt(device.amount) + 1}
+          }
+          if(number === 2){
+            return {...device, amount: parseInt(device.amount) -1}
+          }
+        }
+        return device;
+      }
+      )
+      .filter(device => parseInt(device.amount) > 0)
+      )
     }
-    //Maknuti useEffect i napraviti constantu
+
+    //Props je argument koji prosljedujes komponentama npr <SinglePhone device={device}/> ovaj device je props
     
    /*  <Button variation="primary">Bernard</Button>
         <Button variation="ghost">Bernard</Button> */
