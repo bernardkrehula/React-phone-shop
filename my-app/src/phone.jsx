@@ -21,7 +21,7 @@ const SinglePhone = ({device, removePhone, toggleAmount}) => {
 
         toggleAmount(id, newAmount)
     }
-    
+    //Iskoristiti phone state posaljem id u app.jsx nadem telefon i iskoristim funckije increase i decrease amount
     return(
         <li className='single-bag' key={id}>
             <img src={image}/>

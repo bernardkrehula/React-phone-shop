@@ -5,10 +5,10 @@ import SinglePhone from './phone.jsx';
 
 function App() {
   const [ phone, setPhone ] = useState(phonesData);
-  const [ price, setPrice ] = useState(0);
-  const [ getSumAmount, setSumAmount ] = useState(phone.length);
-
-
+  
+  const price = phone.reduce((acc, phone) => acc + (phone.amount * phone.price), 0)
+  const amount = phone.reduce((acc, phone) => acc + parseInt(phone.amount), 0)
+  console.log(amount)
     const removePhone = (id) => {
         setPhone(prev => prev.filter(device => device.id !== id)
       )
@@ -19,19 +19,18 @@ function App() {
     const toggleAmount = (id, number) => {
       setPhone(prev => prev.map(device => device.id === id ? {...device, amount: number} : device));
     }
-    useEffect(() => {
-      let sum = 0;
-      phone.map(prev => sum += parseInt(prev.amount))
-      setSumAmount(sum)
-    }, [phone])
+    //Maknuti useEffect i napraviti constantu
     
-    useEffect(() => {
-        let sum = 0;
-        phone.forEach((device) => { sum += parseFloat(device.price * device.amount)})
-        setPrice(sum)
-    },[phone]) 
+   /*  <Button variation="primary">Bernard</Button>
+        <Button variation="ghost">Bernard</Button> */
 
+    //Napravi komponentu btn 
+    //Ta komponenta treba da primi 2 propsa
+    //Variation i clickHandler 
+    //Ako primi variation npr ghost znam da je sivi 
+    //Ako primi variation primary znam da je plavi 
 
+     
     return (
         <>
           <div className='main'>
@@ -42,7 +41,7 @@ function App() {
                   </svg>
                   <svg id='bubble' xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="currentColor"  className="icon icon-tabler icons-tabler-filled icon-tabler-circle"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 3.34a10 10 0 1 1 -4.995 8.984l-.005 -.324l.005 -.324a10 10 0 0 1 4.995 -8.336z" />
                   </svg>
-                  <h2>{getSumAmount}</h2>
+                  <h2>{amount}</h2>
                 </div>
                 
               </div>
@@ -61,7 +60,7 @@ function App() {
                     <hr></hr>
                     <div className='total-price'>
                       <h5>Total</h5>
-                      <h6>${price.toFixed(2)}</h6>
+                      <h6>${price}</h6>
                     </div>
                     <button className='clear-btn' onClick={clearCart}>Clear cart</button>
                   </>
