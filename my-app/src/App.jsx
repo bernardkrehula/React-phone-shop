@@ -21,10 +21,10 @@ function App() {
         prev
         .map(device => {
         if(device.id === id){
-          if(number === 1){
+          if(number === 'increase'){
             return {...device, amount: parseInt(device.amount) + 1}
           }
-          if(number === 2){
+          if(number === 'decrease'){
             return {...device, amount: parseInt(device.amount) -1}
           }
         }
@@ -76,7 +76,7 @@ function App() {
                     <hr></hr>
                     <div className='total-price'>
                       <h5>Total</h5>
-                      <h6>${price}</h6>
+                      <h6>${price.toFixed(2)}</h6>
                     </div>
                     <button className='clear-btn' onClick={clearCart}>Clear cart</button>
                   </>
